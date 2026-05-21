@@ -1,0 +1,23 @@
+services:
+  satisfactory-server:
+    container_name: 'satisfactory-server'
+    hostname: 'satisfactory-server'
+    image: 'wolveix/satisfactory-server:latest'
+    ports:
+      - '7777:7777/tcp'
+      - '7777:7777/udp'
+      - '8888:8888/tcp'
+    volumes:
+      - '/home/braden/satisfactory-server/config:/config'
+    environment:
+      - MAXPLAYERS=8
+      - PGID=1000
+      - PUID=1000
+      - STEAMBETA=false
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 12G
+        reservations:
+          memory: 4G

@@ -1,0 +1,34 @@
+services:
+  mc:
+    image: itzg/minecraft-server:latest
+    container_name: minecraft-server
+    pull_policy: daily
+    tty: true
+    stdin_open: true
+    ports:
+      - "25565:25565"
+    environment:
+      EULA: "TRUE"
+      VERSION: "1.20.1"
+      MOTD: "wonderland"
+      TYPE: FORGE
+      MODRINTH_PROJECTS: |
+        geckolib
+        wonderland-jar
+        timeless-and-classics-zero
+        gore-and-more
+        cloth-config
+        jei:beta
+        ultimate-car-mod
+      WHITELIST: |
+        hotboybraden
+        Felton_Nuts69
+        hairyy_cox
+      OPS: |
+        hotboybraden
+      MODE: survival
+      VIEW_DISTANCE: 12
+    volumes:
+      - /home/braden/minecraft-server/data:/data
+      - /home/braden/minecraft-server/modpacks:/modpacks:ro
+    restart: unless-stopped

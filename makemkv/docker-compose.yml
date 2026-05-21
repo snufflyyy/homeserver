@@ -1,0 +1,13 @@
+services:
+  makemkv:
+    image: jlesage/makemkv
+    container_name: makemkv
+    ports:
+      - "5700:5800"
+    volumes:
+      - "/home/braden/makemkv/data:/config:rw"
+      - "/home/braden:/storage:ro"
+      - "/mnt/drive-two:/output:rw"
+    devices:
+      - "/dev/sr0:/dev/sr0"
+      - "/dev/sg3:/dev/sg3"

@@ -1,0 +1,20 @@
+services:
+  firefox:
+    image: lscr.io/linuxserver/firefox:latest
+    container_name: firefox
+    devices:
+      - /dev/dri:/dev/dri
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Chicago
+      - CUSTOM_USER=braden
+      - PASSWORD=callahan1
+      - PIXELFLUX_WAYLAND=true
+      - DRINODE=/dev/dri/renderD128
+      - DRI_NODE=/dev/dri/renderD128
+    volumes:
+      - /home/braden/firefox/config:/config
+    shm_size: "1gb"
+    network_mode: "container:gluetun" 
+    restart: unless-stopped

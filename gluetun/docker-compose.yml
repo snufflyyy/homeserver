@@ -1,0 +1,22 @@
+services:
+  gluetun:
+    image: qmcgaw/gluetun
+    container_name: gluetun
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    environment:
+      - VPN_SERVICE_PROVIDER=mullvad
+      - VPN_TYPE=wireguard
+      - WIREGUARD_PRIVATE_KEY=MFphF2xjkDCXpzAcILc3nrMFj6ZsyQrIs3HtgLNRS3s=
+      - WIREGUARD_ADDRESSES=10.64.17.163/32
+      - SERVER_CITIES=Chicago IL
+      - FIREWALL_OUTBOUND_SUBNETS=192.168.0.0/24
+    ports:
+      - 8080:8080 # qbittorrent
+      - 3000:3000 # firefox
+      - 3001:3001 # firefox
+      - 6881:6881
+      - 6881:6881/udp
+    restart: unless-stopped

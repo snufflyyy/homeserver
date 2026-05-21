@@ -1,0 +1,10 @@
+services:
+  mkvtoolnix:
+    image: jlesage/mkvtoolnix
+    container_name: mkvtoolnix
+    ports:
+      - "5800:5800"
+    volumes:
+      - "/home/braden/mkvtoolnix/config:/config:rw"
+      - "/mnt/drive-one:/drive-one:rw"
+      - "/mnt/drive-two:/drive-two:rw"
