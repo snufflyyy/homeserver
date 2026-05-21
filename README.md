@@ -1,6 +1,6 @@
-# homserver
+# homeserver
 
-```bash
+```
 braden@homeserver:~$ fastfetch
         _,met$$$$$gg.          braden@homeserver
      ,g$$$$$$$$$$$$$$$P.       -----------------
